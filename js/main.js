@@ -1,25 +1,26 @@
-let beginValue = 2;
-let endValue = 10;
-let commentLength = 10;
-let maxLength = 140;
+const BEGIN_VALUE = 2;
+const END_VALUE = 10;
+const COMMENT_LENGTH = 10;
+const MAX_LENGTH = 140;
 
 // Функция, возвращающая случайное целое число из переданного диапазона включительно
+
 function randomNumber (beginValue, endValue) {
-  if (beginValue >= 0 && endValue >= 0) {
-    if (beginValue < endValue) {
-      return Math.round(Math.random() * (endValue - beginValue)) + beginValue;
-    }
+  if (beginValue >= 0 && endValue >= 0 && beginValue < endValue) {
+    return Math.round(Math.random() * (endValue - beginValue)) + beginValue;
   }
   return NaN;
 }
 
+// const randomNumber = beginValue, endValue =>
+
 // Функция для проверки максимальной длины строки
-function lengthString(commentLength, maxLength) {
-  if (commentLength <= maxLength) {
+function lengthString(CommentLength, MaxLength) {
+  if (CommentLength <= MaxLength) {
     return true;
   }
   return false;
 }
 
-console.log(lengthString(commentLength, maxLength))
-console.log(randomNumber(beginValue, endValue));
+lengthString(COMMENT_LENGTH, MAX_LENGTH);
+randomNumber(BEGIN_VALUE, END_VALUE);
