@@ -1,7 +1,4 @@
-const BEGIN_VALUE = 2;
-const END_VALUE = 10;
-const COMMENT_LENGTH = 10;
-const MAX_LENGTH = 140;
+const MAX_COMMENT_LENGTH = 140;
 
 // Функция, возвращающая случайное целое число из переданного диапазона включительно
 
@@ -12,15 +9,13 @@ function randomNumber (beginValue, endValue) {
   return NaN;
 }
 
-// const randomNumber = beginValue, endValue =>
-
 // Функция для проверки максимальной длины строки
-function lengthString(CommentLength, MaxLength) {
-  if (CommentLength <= MaxLength) {
+function lengthString(CommentLength, MaxCommentLength) {
+  if (CommentLength <= MaxCommentLength) {
     return true;
   }
   return false;
 }
 
-lengthString(COMMENT_LENGTH, MAX_LENGTH);
-randomNumber(BEGIN_VALUE, END_VALUE);
+lengthString(10, MAX_COMMENT_LENGTH);
+randomNumber(2, 10);
