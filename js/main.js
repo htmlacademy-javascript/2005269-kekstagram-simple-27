@@ -1,4 +1,5 @@
 const MAX_COMMENT_LENGTH = 140;
+const VERIFIED_STRING = 'message';
 
 // Функция, возвращающая случайное целое число из переданного диапазона включительно
 function GetRandomNumber (beginValue, endValue) {
@@ -9,12 +10,12 @@ function GetRandomNumber (beginValue, endValue) {
 }
 
 // Функция для проверки максимальной длины строки
-function CheckLengthString(CommentLength, MaxCommentLength) {
-  if (CommentLength <= MaxCommentLength) {
+function CheckLengthString(verifiedString, maxLength) {
+  if (verifiedString.length <= maxLength) {
     return true;
   }
   return false;
 }
 
-CheckLengthString(10, MAX_COMMENT_LENGTH);
+CheckLengthString(VERIFIED_STRING, MAX_COMMENT_LENGTH);
 GetRandomNumber(2, 10);
