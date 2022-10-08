@@ -18,14 +18,7 @@ function CheckLengthString(verifiedString, maxLength) {
   return false;
 }
 
-// const CREATE_PICTURE = {
-//   id: GetRandomNumber(1, 25),
-//   url: 'photos/' + GetRandomNumber(1, 25) + '.jpg',
-//   description: 'Фото природы',
-//   likes: GetRandomNumber(15, 200),
-//   comment: GetRandomNumber(0, 200),
-// };
-
+// Функция создания значений для фотографий
 const createPicture = () => ({
   id: GetRandomNumber(1, 25),
   url: `photos/${GetRandomNumber(1, 25)}.jpg`,
@@ -36,6 +29,7 @@ const createPicture = () => ({
 
 const similarPicture = Array.from({length: PICTURE_COUNT}, createPicture);
 
+// Вызовы функций, чтобы ESLint не ругался
 similarPicture();
 CheckLengthString(VERIFIED_STRING, MAX_COMMENT_LENGTH);
 GetRandomNumber(2, 10);
