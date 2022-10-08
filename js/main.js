@@ -1,5 +1,6 @@
 const MAX_COMMENT_LENGTH = 140;
 const VERIFIED_STRING = 'message';
+const PICTURE_COUNT = 25;
 
 // Функция, возвращающая случайное целое число из переданного диапазона включительно
 function GetRandomNumber (beginValue, endValue) {
@@ -17,5 +18,26 @@ function CheckLengthString(verifiedString, maxLength) {
   return false;
 }
 
+// const CREATE_PICTURE = {
+//   id: GetRandomNumber(1, 25),
+//   url: 'photos/' + GetRandomNumber(1, 25) + '.jpg',
+//   description: 'Фото природы',
+//   likes: GetRandomNumber(15, 200),
+//   comment: GetRandomNumber(0, 200),
+// };
+
+const createPicture = () => ({
+  id: GetRandomNumber(1, 25),
+  url: `photos/${GetRandomNumber(1, 25)}.jpg`,
+  description: 'Фото природы',
+  likes: GetRandomNumber(15, 200),
+  comment: GetRandomNumber(0, 200),
+});
+
+const similarPicture = Array.from({length: PICTURE_COUNT}, createPicture);
+
+similarPicture();
 CheckLengthString(VERIFIED_STRING, MAX_COMMENT_LENGTH);
 GetRandomNumber(2, 10);
+createPicture();
+
