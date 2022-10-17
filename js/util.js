@@ -1,9 +1,12 @@
-import {INDEX_ID, INDEX_URL} from './data.js';
+import {MIN, MAX} from './data.js';
+
+const getRandomIndexForId = createRandomIndexForId(MIN, MAX);
+const getRandomIndexForUrl = createRandomIndexForUrl(MIN, MAX);
 
 // Функция создания значений для фотографий
 export const createPicture = () => ({
-  id: INDEX_ID (),
-  url: `photos/${INDEX_URL()}.jpg`,
+  id: getRandomIndexForId (),
+  url: `photos/${getRandomIndexForUrl()}.jpg`,
   description: 'Фото природы',
   likes: getRandomNumber(15, 200),
   comment: getRandomNumber(0, 200),
@@ -25,7 +28,7 @@ export function getRandomNumber (beginValue, endValue) {
   return NaN;
 }
 
-export function getRandomIndexForId (Min, Max) {
+export function createRandomIndexForId (Min, Max) {
   const array = [];
 
   return function () {
@@ -41,7 +44,7 @@ export function getRandomIndexForId (Min, Max) {
   };
 }
 
-export function getRandomIndexForUrl (Min, Max) {
+export function createRandomIndexForUrl (Min, Max) {
   const array = [];
 
   return function () {
