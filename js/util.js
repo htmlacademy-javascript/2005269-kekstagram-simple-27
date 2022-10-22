@@ -4,7 +4,7 @@ const getRandomIndexForId = createRandomIndexForId(MIN, MAX);
 const getRandomIndexForUrl = createRandomIndexForUrl(MIN, MAX);
 
 // Функция создания значений для фотографий
-export const createPicture = () => ({
+const createPicture = () => ({
   id: getRandomIndexForId (),
   url: `photos/${getRandomIndexForUrl()}.jpg`,
   description: 'Фото природы',
@@ -59,3 +59,5 @@ export function createRandomIndexForUrl (Min, Max) {
     return result;
   };
 }
+
+export {createPicture};
