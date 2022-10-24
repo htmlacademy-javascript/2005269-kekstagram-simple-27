@@ -1,6 +1,8 @@
-// import {createPicture} from './util.js';
-// import {PICTURE_COUNT} from './data.js';
 import './download.js';
 
-// eslint-disable-next-line no-unused-vars
+// Код для следующего дз
+const delEte = document.querySelector('.img-upload__overlay');
 
+document.addEventListener('keydown', () => {
+  delEte.classList.remove('hidden');
+});

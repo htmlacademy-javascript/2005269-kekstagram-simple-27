@@ -4,10 +4,9 @@ import {PICTURE_COUNT} from './data.js';
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const pictureContainer = document.querySelector('.pictures');
 const pictureList = document.createDocumentFragment();
-const similarPicture = () => Array.from({length: PICTURE_COUNT}, createPicture);
-const picture = similarPicture();
+const similarPictures = Array.from({length: PICTURE_COUNT}, (_, id) => createPicture(id + 1));
 
-picture.forEach((image) => {
+similarPictures.forEach((image) => {
   const pictureElement = pictureTemplate.cloneNode(true);
   pictureElement.querySelector('.picture__img').src = image.url;
   pictureElement.querySelector('.picture__likes').textContent = image.likes;
