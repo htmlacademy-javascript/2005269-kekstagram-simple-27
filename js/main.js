@@ -1,9 +1,8 @@
-import {createPicture} from './util.js';
-import {PICTURE_COUNT} from './data.js';
+import './download.js';
 
-const similarPicture = Array.from({length: PICTURE_COUNT}, createPicture);
+// Код для следующего дз
+const delEte = document.querySelector('.img-upload__overlay');
 
-// Вызовы функций, чтобы ESLint не ругался
-similarPicture();
-
-
+document.addEventListener('keydown', () => {
+  delEte.classList.remove('hidden');
+});
