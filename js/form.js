@@ -1,8 +1,9 @@
 const uploadFile = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
-const buttonSubmit = document.querySelector('#upload-submit');
+const uploadForm = document.querySelector('.img-upload__form');
 const closeButton = uploadFile.querySelector('#upload-cancel');
 const downloadPhoto = document.querySelector('#upload-file');
+const pristine = new Pristine(uploadForm);
 
 closeButton.addEventListener('click', () => {
   uploadFile.classList.add('hidden');
@@ -15,7 +16,17 @@ downloadPhoto.addEventListener('change', () => {
   body.classList.add('modal-open');
 });
 
-buttonSubmit.addEventListener('click', (evt) => {
+
+uploadForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
+
+  const isValid = pristine.validate();
+  if (isValid) {
+    // eslint-disable-next-line no-console
+    console.log('Можно отправлять');
+  } else {
+    // eslint-disable-next-line no-console
+    console.log('Форма невалидна');
+  }
 });
 
