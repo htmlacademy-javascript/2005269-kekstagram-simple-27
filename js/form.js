@@ -1,32 +1,25 @@
-const uploadFile = document.querySelector('.img-upload__overlay');
+import './edit-form.js';
+
+const editingForm = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
-const uploadForm = document.querySelector('.img-upload__form');
-const closeButton = uploadFile.querySelector('#upload-cancel');
-const downloadPhoto = document.querySelector('#upload-file');
-const pristine = new Pristine(uploadForm);
+const closeButton = editingForm.querySelector('#upload-cancel');
+const uploadPhoto = document.querySelector('#upload-file');
 
 closeButton.addEventListener('click', () => {
-  uploadFile.classList.add('hidden');
+  editingForm.classList.add('hidden');
   body.classList.remove('modal-open');
-  downloadPhoto.value = '';
+  uploadPhoto.value = '';
 });
 
-downloadPhoto.addEventListener('change', () => {
-  uploadFile.classList.remove('hidden');
-  body.classList.add('modal-open');
-});
-
-
-uploadForm.addEventListener('submit', (evt) => {
-  evt.preventDefault();
-
-  const isValid = pristine.validate();
-  if (isValid) {
-    // eslint-disable-next-line no-console
-    console.log('Можно отправлять');
-  } else {
-    // eslint-disable-next-line no-console
-    console.log('Форма невалидна');
+document.addEventListener('keydown', (evt) => {
+  if (evt.key === 'Escape') {
+    editingForm.classList.add('hidden');
+    body.classList.remove('modal-open');
+    uploadPhoto.value = '';
   }
 });
 
+uploadPhoto.addEventListener('change', () => {
+  editingForm.classList.remove('hidden');
+  body.classList.add('modal-open');
+});
