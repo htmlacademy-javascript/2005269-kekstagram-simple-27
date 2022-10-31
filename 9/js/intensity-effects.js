@@ -20,23 +20,6 @@ noUiSlider.create(sliderElement, {
   connect: 'lower',
 });
 
-// sliderElement.noUiSlider.on('update', () => {
-//   // if (imageUploadPreview.className === 'effects__preview--chrome') {
-//   //   let intensityValue = valueElement.value;
-//   //   intensityValue = sliderElement.noUiSlider.get();
-//   //   imageUploadPreview.style.filter = `grayscale(${intensityValue})`;
-//   // }
-//   if (imageUploadPreview.className === 'effects__preview--marvin') {
-//     let intensityValue = valueElement.value;
-//     intensityValue = sliderElement.noUiSlider.get();
-//     imageUploadPreview.style.filter = `invert(${intensityValue})`;
-//   }
-//   if (imageUploadPreview.className === 'effects__preview--none') {
-//     imageUploadPreview.style.filter = '';
-//   }
-// });
-
-
 effectNone.addEventListener('click', () => {
   sliderElement.noUiSlider.on('update', () => {
     imageUploadPreview.style.filter = '';
@@ -44,6 +27,13 @@ effectNone.addEventListener('click', () => {
 });
 
 effectChrome.addEventListener('click', () => {
+  sliderElement.noUiSlider.updateOptions({
+    range: {
+      min: 0,
+      max: 1,
+    },
+    step: 0.1,
+  });
   sliderElement.noUiSlider.on('update', () => {
     let intensityValue = valueElement.value;
     intensityValue = sliderElement.noUiSlider.get();
@@ -52,6 +42,13 @@ effectChrome.addEventListener('click', () => {
 });
 
 effectSepia.addEventListener('click' , () => {
+  sliderElement.noUiSlider.updateOptions({
+    range: {
+      min: 0,
+      max: 1,
+    },
+    step: 0.1,
+  });
   sliderElement.noUiSlider.on('update', () => {
     let intensityValue = valueElement.value;
     intensityValue = sliderElement.noUiSlider.get();
@@ -60,48 +57,46 @@ effectSepia.addEventListener('click' , () => {
 });
 
 effectMarvin.addEventListener('click', () => {
+  sliderElement.noUiSlider.updateOptions({
+    range: {
+      min: 0,
+      max: 100,
+    },
+    step: 1,
+  });
   sliderElement.noUiSlider.on('update', () => {
     let intensityValue = valueElement.value;
     intensityValue = sliderElement.noUiSlider.get();
-    imageUploadPreview.style.filter = `invert(${intensityValue})`;
+    imageUploadPreview.style.filter = `invert(${intensityValue}%)`;
   });
 });
 
 effectPhobos.addEventListener('click', () => {
+  sliderElement.noUiSlider.updateOptions({
+    range: {
+      min: 0,
+      max: 3,
+    },
+    step: 0.1,
+  });
   sliderElement.noUiSlider.on('update', () => {
     let intensityValue = valueElement.value;
     intensityValue = sliderElement.noUiSlider.get();
-    imageUploadPreview.style.filter = `blur(${intensityValue})`;
+    imageUploadPreview.style.filter = `blur(${intensityValue}px)`;
   });
 });
 
 effectHeat.addEventListener('click', () => {
+  sliderElement.noUiSlider.updateOptions({
+    range: {
+      min: 1,
+      max: 3,
+    },
+    step: 0.1,
+  });
   sliderElement.noUiSlider.on('update', () => {
     let intensityValue = valueElement.value;
     intensityValue = sliderElement.noUiSlider.get();
     imageUploadPreview.style.filter = `brightness(${intensityValue})`;
   });
 });
-// effectMarvin.addEventListener('click', () => {
-//   noUiSlider.create(sliderElement, {
-//     range: {
-//       min: 0,
-//       max: 100,
-//     },
-//     start: 100,
-//     step: 1,
-//     connect: 'lower',
-//   });
-//   sliderElement.noUiSlider.on('update', () => {
-//     if (imageUploadPreview.className === 'effects__preview--marvin') {
-//       let intensityValue = valueElement.value;
-//       intensityValue = sliderElement.noUiSlider.get();
-//       imageUploadPreview.style.filter = `invert(${intensityValue})%`;
-//     }
-//   });
-// });
-
-// effectNone.addEventListener('click', () => {
-//   imageUploadPreview.style.filter = '';
-//   sliderElement.noUiSlider.destroy();
-// });
