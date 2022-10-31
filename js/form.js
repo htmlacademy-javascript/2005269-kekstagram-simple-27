@@ -1,5 +1,6 @@
 import './edit-form.js';
 import './effects.js';
+import './intensity-effects.js';
 
 const editingForm = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
