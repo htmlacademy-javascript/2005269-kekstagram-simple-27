@@ -1,6 +1,6 @@
-import {imageUploadPreview} from './edit-form.js';
 import '../vendor/nouislider/nouislider.js';
 
+const imageUploadPreview = document.querySelector('.img-upload__preview img');
 const sliderElement = document.querySelector('.effect-level__slider');
 const valueElement = document.querySelector('.effect-level__value');
 const effectNone = document.querySelector('#effect-none');
@@ -21,12 +21,16 @@ noUiSlider.create(sliderElement, {
 });
 
 effectNone.addEventListener('click', () => {
+  imageUploadPreview.className = '';
+  imageUploadPreview.classList.add('effects__preview--none');
   sliderElement.noUiSlider.on('update', () => {
     imageUploadPreview.style.filter = '';
   });
 });
 
 effectChrome.addEventListener('click', () => {
+  imageUploadPreview.className = '';
+  imageUploadPreview.classList.add('effects__preview--chrome');
   sliderElement.noUiSlider.updateOptions({
     range: {
       min: 0,
@@ -42,6 +46,8 @@ effectChrome.addEventListener('click', () => {
 });
 
 effectSepia.addEventListener('click' , () => {
+  imageUploadPreview.className = '';
+  imageUploadPreview.classList.add('effects__preview--sepia');
   sliderElement.noUiSlider.updateOptions({
     range: {
       min: 0,
@@ -57,6 +63,8 @@ effectSepia.addEventListener('click' , () => {
 });
 
 effectMarvin.addEventListener('click', () => {
+  imageUploadPreview.className = '';
+  imageUploadPreview.classList.add('effects__preview--marvin');
   sliderElement.noUiSlider.updateOptions({
     range: {
       min: 0,
@@ -72,6 +80,8 @@ effectMarvin.addEventListener('click', () => {
 });
 
 effectPhobos.addEventListener('click', () => {
+  imageUploadPreview.className = '';
+  imageUploadPreview.classList.add('effects__preview--phobos');
   sliderElement.noUiSlider.updateOptions({
     range: {
       min: 0,
@@ -87,6 +97,8 @@ effectPhobos.addEventListener('click', () => {
 });
 
 effectHeat.addEventListener('click', () => {
+  imageUploadPreview.className = '';
+  imageUploadPreview.classList.add('effects__preview--heat');
   sliderElement.noUiSlider.updateOptions({
     range: {
       min: 1,
@@ -100,3 +112,20 @@ effectHeat.addEventListener('click', () => {
     imageUploadPreview.style.filter = `brightness(${intensityValue})`;
   });
 });
+
+// effectHeat.onclick = funciton() {
+//   sliderElement.noUiSlider.updateOptions({
+//     range: {
+//       min: 1,
+//       max: 3,
+//     },
+//     step: 0.1,
+//   });
+//   sliderElement.noUiSlider.on('update', () => {
+//     let intensityValue = valueElement.value;
+//     intensityValue = sliderElement.noUiSlider.get();
+//     imageUploadPreview.style.filter = `brightness(${intensityValue})`;
+//   });
+// };
+
+export {imageUploadPreview};
