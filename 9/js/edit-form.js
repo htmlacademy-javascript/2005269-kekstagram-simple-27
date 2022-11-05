@@ -1,7 +1,8 @@
+import {imageUploadPreview} from './intensity-effects.js';
+
 const zoomOutButton = document.querySelector('.scale__control--smaller');
 const zoomInButton = document.querySelector('.scale__control--bigger');
 const scaleValue = document.querySelector('.scale__control--value');
-export const imageUploadPreview = document.querySelector('.img-upload__preview img');
 let zoomValue = 100;
 
 scaleValue.value = `${zoomValue}%`;
@@ -21,3 +22,4 @@ zoomInButton.addEventListener('click', () => {
     imageUploadPreview.style.transform = `scale(${scaleValue.value})`;
   }
 });
+
