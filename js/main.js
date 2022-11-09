@@ -1,4 +1,5 @@
-import './send.js';
+import {getRequest} from './send.js';
 import './download.js';
 import './form.js';
-// import './send.js';
+
+getRequest();
