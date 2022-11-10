@@ -1,6 +1,4 @@
-// import {createPicture} from './util.js';
-// import {similarPictures} from './download.js';
-import {closeForm} from './form.js';
+import {showAlert} from './util.js';
 
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const pictureContainer = document.querySelector('.pictures');
@@ -27,18 +25,29 @@ const getRequest = () => {
     });
 };
 
-buttonSubmitForm.addEventListener('submit', (evt) => {
-  evt.preventDefault();
+const setRequest = (onSuccess) => {
+  buttonSubmitForm.addEventListener('submit', (evt) => {
+    evt.preventDefault();
 
-  const formData = new FormData(evt.target);
-  fetch(
-    'https://27.javascript.pages.academy/kekstagram-simple/data',
-    {
-      method: 'POST',
-      body: formData,
-    },
-  );
-  closeForm();
-});
+    const formData = new FormData(evt.target);
+    fetch(
+      'https://27.javascript.pages.academy/kekstagram-simpl',
+      {
+        method: 'POST',
+        body: formData,
+      },
+    )
+      .then((response) => {
+        if (response.ok) {
+          onSuccess();
+        } else {
+          showAlert('Не удалось отправить форму. Попробуйте ещё раз');
+        }
+      })
+      .catch(() => {
+        showAlert('Не удалось отправить форму. Попробуйте ещё раз');
+      });
+  });
+};
 
-export {getRequest};
+export {getRequest, setRequest};
