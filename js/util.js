@@ -1,26 +1,24 @@
-// Функция создания значений для фотографий
-// const createPicture = (id) => ({
-//   id: id,
-//   url: `photos/${id}.jpg`,
-//   description: 'Фото природы',
-//   likes: getRandomNumber(15, 200),
-//   comment: getRandomNumber(0, 200),
-// });
+const ALERT_SHOW_TIME = 3000;
 
-// // Функция для проверки максимальной длины строки
-// export function checkLengthString(verifiedString, maxLength) {
-//   if (verifiedString.length <= maxLength) {
-//     return true;
-//   }
-//   return false;
-// }
+const showAlert = (message) => {
+  const alertContainer = document.createElement('div');
+  alertContainer.style.zIndex = '100';
+  alertContainer.style.position = 'absolute';
+  alertContainer.style.left = '0';
+  alertContainer.style.top = '0';
+  alertContainer.style.right = '0';
+  alertContainer.style.padding = '10px 3px';
+  alertContainer.style.fontSize = '30px';
+  alertContainer.style.textAlign = 'center';
+  alertContainer.style.backgroundColor = 'red';
 
-// // Функция, возвращающая случайное целое число из переданного диапазона включительно
-// export function getRandomNumber (beginValue, endValue) {
-//   if (beginValue >= 0 && endValue >= 0 && beginValue < endValue) {
-//     return Math.round(Math.random() * (endValue - beginValue)) + beginValue;
-//   }
-//   return NaN;
-// }
+  alertContainer.textContent = message;
 
-// export {createPicture};
+  document.body.append(alertContainer);
+
+  setTimeout(() => {
+    alertContainer.remove();
+  }, ALERT_SHOW_TIME);
+};
+
+export {showAlert};
