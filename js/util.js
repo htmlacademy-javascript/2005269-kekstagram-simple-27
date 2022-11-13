@@ -1,26 +1,30 @@
-// Функция создания значений для фотографий
-// const createPicture = (id) => ({
-//   id: id,
-//   url: `photos/${id}.jpg`,
-//   description: 'Фото природы',
-//   likes: getRandomNumber(15, 200),
-//   comment: getRandomNumber(0, 200),
-// });
+const ALERT_SHOW_TIME = 3000;
+const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
+const pictureContainer = document.querySelector('.pictures');
+const pictureList = document.createDocumentFragment();
 
-// // Функция для проверки максимальной длины строки
-// export function checkLengthString(verifiedString, maxLength) {
-//   if (verifiedString.length <= maxLength) {
-//     return true;
-//   }
-//   return false;
-// }
+const showAlert = (message) => {
+  const alertContainer = document.createElement('div');
+  alertContainer.classList.add('show-error');
 
-// // Функция, возвращающая случайное целое число из переданного диапазона включительно
-// export function getRandomNumber (beginValue, endValue) {
-//   if (beginValue >= 0 && endValue >= 0 && beginValue < endValue) {
-//     return Math.round(Math.random() * (endValue - beginValue)) + beginValue;
-//   }
-//   return NaN;
-// }
+  alertContainer.textContent = message;
 
-// export {createPicture};
+  document.body.append(alertContainer);
+
+  setTimeout(() => {
+    alertContainer.remove();
+  }, ALERT_SHOW_TIME);
+};
+
+const renderPhotos = (pictures) => {
+  pictures.forEach((image) => {
+    const pictureElement = pictureTemplate.cloneNode(true);
+    pictureElement.querySelector('.picture__img').src = image.url;
+    pictureElement.querySelector('.picture__likes').textContent = image.likes;
+    pictureElement.querySelector('.picture__comments').textContent = image.comments;
+    pictureList.appendChild(pictureElement);
+  });
+  pictureContainer.appendChild(pictureList);
+};
+
+export {showAlert, renderPhotos};

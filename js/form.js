@@ -12,6 +12,11 @@ closeButton.addEventListener('click', () => {
   uploadPhoto.value = '';
 });
 
+const closeForm = () => {
+  editingForm.classList.add('hidden');
+  body.classList.remove('modal-open');
+};
+
 document.addEventListener('keydown', (evt) => {
   if (evt.key === 'Escape') {
     editingForm.classList.add('hidden');
@@ -24,3 +29,5 @@ uploadPhoto.addEventListener('change', () => {
   editingForm.classList.remove('hidden');
   body.classList.add('modal-open');
 });
+
+export {closeForm};
