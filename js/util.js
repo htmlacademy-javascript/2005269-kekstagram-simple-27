@@ -1,16 +1,11 @@
 const ALERT_SHOW_TIME = 3000;
+const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
+const pictureContainer = document.querySelector('.pictures');
+const pictureList = document.createDocumentFragment();
 
 const showAlert = (message) => {
   const alertContainer = document.createElement('div');
-  alertContainer.style.zIndex = '100';
-  alertContainer.style.position = 'absolute';
-  alertContainer.style.left = '0';
-  alertContainer.style.top = '0';
-  alertContainer.style.right = '0';
-  alertContainer.style.padding = '10px 3px';
-  alertContainer.style.fontSize = '30px';
-  alertContainer.style.textAlign = 'center';
-  alertContainer.style.backgroundColor = 'red';
+  alertContainer.classList.add('show-error');
 
   alertContainer.textContent = message;
 
@@ -21,4 +16,15 @@ const showAlert = (message) => {
   }, ALERT_SHOW_TIME);
 };
 
-export {showAlert};
+const renderPhotos = (pictures) => {
+  pictures.forEach((image) => {
+    const pictureElement = pictureTemplate.cloneNode(true);
+    pictureElement.querySelector('.picture__img').src = image.url;
+    pictureElement.querySelector('.picture__likes').textContent = image.likes;
+    pictureElement.querySelector('.picture__comments').textContent = image.comments;
+    pictureList.appendChild(pictureElement);
+  });
+  pictureContainer.appendChild(pictureList);
+};
+
+export {showAlert, renderPhotos};

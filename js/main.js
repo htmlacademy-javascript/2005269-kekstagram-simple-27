@@ -4,5 +4,4 @@ import './download.js';
 import './form.js';
 
 getRequest();
-
 setRequest(closeForm);
