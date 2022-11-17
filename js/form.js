@@ -1,8 +1,9 @@
 import './edit-form.js';
 import './intensity-effects.js';
+import {body} from './send.js';
 
 const editingForm = document.querySelector('.img-upload__overlay');
-const body = document.querySelector('body');
+
 const closeButton = editingForm.querySelector('#upload-cancel');
 const uploadPhoto = document.querySelector('#upload-file');
 

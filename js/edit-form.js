@@ -23,3 +23,5 @@ zoomInButton.addEventListener('click', () => {
   }
 });
 
+export {scaleValue};
+
