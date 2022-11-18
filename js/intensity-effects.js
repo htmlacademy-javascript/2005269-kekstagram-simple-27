@@ -1,4 +1,5 @@
 import '../vendor/nouislider/nouislider.js';
+import {scaleValue} from './edit-form.js';
 
 const imageUploadPreview = document.querySelector('.img-upload__preview img');
 const sliderElement = document.querySelector('.effect-level__slider');
@@ -14,27 +15,33 @@ let percent = '';
 let filter = '';
 let pixel = '';
 
+sliderElement.classList.add('hidden');
+
 noUiSlider.create(sliderElement, {
   range: {
     min: 0,
     max: 1,
   },
-  start: 0.8,
+  start: 1,
   step: 0.1,
   connect: 'lower',
 });
 
 effectNone.addEventListener('click', () => {
-  filter = '';
+  sliderElement.classList.add('hidden');
+  // filter = 'none';
+  scaleValue.value = '100%';
+  imageUploadPreview.style.transform = 'scale(100%)';
   percent = '';
   pixel = '';
-  sliderElement.noUiSlider.on('update', () => {
-    imageUploadPreview.style.filter = '';
-  });
+  imageUploadPreview.style.removeProperty('filter');
 });
 
 effectChrome.addEventListener('click', () => {
+  sliderElement.classList.remove('hidden');
   filter = 'grayscale';
+  scaleValue.value = '100%';
+  imageUploadPreview.style.transform = 'scale(100%)';
   percent = '';
   pixel = '';
   sliderElement.noUiSlider.updateOptions({
@@ -42,12 +49,16 @@ effectChrome.addEventListener('click', () => {
       min: 0,
       max: 1,
     },
+    start: 1,
     step: 0.1,
   });
 });
 
 effectSepia.addEventListener('click' , () => {
+  sliderElement.classList.remove('hidden');
   filter = 'sepia';
+  scaleValue.value = '100%';
+  imageUploadPreview.style.transform = 'scale(100%)';
   percent = '';
   pixel = '';
   sliderElement.noUiSlider.updateOptions({
@@ -55,12 +66,16 @@ effectSepia.addEventListener('click' , () => {
       min: 0,
       max: 1,
     },
+    start: 1,
     step: 0.1,
   });
 });
 
 effectMarvin.addEventListener('click', () => {
+  sliderElement.classList.remove('hidden');
   filter = 'invert';
+  scaleValue.value = '100%';
+  imageUploadPreview.style.transform = 'scale(100%)';
   percent = '%';
   pixel = '';
   sliderElement.noUiSlider.updateOptions({
@@ -68,12 +83,16 @@ effectMarvin.addEventListener('click', () => {
       min: 0,
       max: 100,
     },
+    start: 100,
     step: 1,
   });
 });
 
 effectPhobos.addEventListener('click', () => {
+  sliderElement.classList.remove('hidden');
   filter = 'blur';
+  scaleValue.value = '100%';
+  imageUploadPreview.style.transform = 'scale(100%)';
   percent = '';
   pixel = 'px';
   sliderElement.noUiSlider.updateOptions({
@@ -81,12 +100,16 @@ effectPhobos.addEventListener('click', () => {
       min: 0,
       max: 3,
     },
+    start: 3,
     step: 0.1,
   });
 });
 
 effectHeat.addEventListener('click', () => {
+  sliderElement.classList.remove('hidden');
   filter = 'brightness';
+  scaleValue.value = '100%';
+  imageUploadPreview.style.transform = 'scale(100%)';
   percent = '';
   pixel = '';
   sliderElement.noUiSlider.updateOptions({
@@ -94,6 +117,7 @@ effectHeat.addEventListener('click', () => {
       min: 1,
       max: 3,
     },
+    start: 3,
     step: 0.1,
   });
 });
