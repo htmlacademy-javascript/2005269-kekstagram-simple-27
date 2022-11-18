@@ -3,7 +3,6 @@ import './intensity-effects.js';
 import {body} from './send.js';
 
 const editingForm = document.querySelector('.img-upload__overlay');
-
 const closeButton = editingForm.querySelector('#upload-cancel');
 const uploadPhoto = document.querySelector('#upload-file');
 

@@ -29,7 +29,6 @@ noUiSlider.create(sliderElement, {
 
 effectNone.addEventListener('click', () => {
   sliderElement.classList.add('hidden');
-  // filter = 'none';
   scaleValue.value = '100%';
   imageUploadPreview.style.transform = 'scale(100%)';
   percent = '';
