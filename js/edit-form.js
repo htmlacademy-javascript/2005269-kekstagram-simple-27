@@ -4,7 +4,6 @@ const zoomOutButton = document.querySelector('.scale__control--smaller');
 const zoomInButton = document.querySelector('.scale__control--bigger');
 const scaleValue = document.querySelector('.scale__control--value');
 let zoomValue = 100;
-
 scaleValue.value = `${zoomValue}%`;
 
 zoomOutButton.addEventListener('click', () => {

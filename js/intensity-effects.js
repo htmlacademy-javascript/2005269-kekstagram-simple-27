@@ -1,4 +1,5 @@
 import '../vendor/nouislider/nouislider.js';
+import {scaleValue} from './edit-form.js';
 
 const imageUploadPreview = document.querySelector('.img-upload__preview img');
 const sliderElement = document.querySelector('.effect-level__slider');
@@ -29,6 +30,8 @@ noUiSlider.create(sliderElement, {
 effectNone.addEventListener('click', () => {
   sliderElement.classList.add('hidden');
   // filter = 'none';
+  scaleValue.value = '100%';
+  imageUploadPreview.style.transform = 'scale(100%)';
   percent = '';
   pixel = '';
   imageUploadPreview.style.removeProperty('filter');
@@ -37,6 +40,8 @@ effectNone.addEventListener('click', () => {
 effectChrome.addEventListener('click', () => {
   sliderElement.classList.remove('hidden');
   filter = 'grayscale';
+  scaleValue.value = '100%';
+  imageUploadPreview.style.transform = 'scale(100%)';
   percent = '';
   pixel = '';
   sliderElement.noUiSlider.updateOptions({
@@ -52,6 +57,8 @@ effectChrome.addEventListener('click', () => {
 effectSepia.addEventListener('click' , () => {
   sliderElement.classList.remove('hidden');
   filter = 'sepia';
+  scaleValue.value = '100%';
+  imageUploadPreview.style.transform = 'scale(100%)';
   percent = '';
   pixel = '';
   sliderElement.noUiSlider.updateOptions({
@@ -67,6 +74,8 @@ effectSepia.addEventListener('click' , () => {
 effectMarvin.addEventListener('click', () => {
   sliderElement.classList.remove('hidden');
   filter = 'invert';
+  scaleValue.value = '100%';
+  imageUploadPreview.style.transform = 'scale(100%)';
   percent = '%';
   pixel = '';
   sliderElement.noUiSlider.updateOptions({
@@ -82,6 +91,8 @@ effectMarvin.addEventListener('click', () => {
 effectPhobos.addEventListener('click', () => {
   sliderElement.classList.remove('hidden');
   filter = 'blur';
+  scaleValue.value = '100%';
+  imageUploadPreview.style.transform = 'scale(100%)';
   percent = '';
   pixel = 'px';
   sliderElement.noUiSlider.updateOptions({
@@ -97,6 +108,8 @@ effectPhobos.addEventListener('click', () => {
 effectHeat.addEventListener('click', () => {
   sliderElement.classList.remove('hidden');
   filter = 'brightness';
+  scaleValue.value = '100%';
+  imageUploadPreview.style.transform = 'scale(100%)';
   percent = '';
   pixel = '';
   sliderElement.noUiSlider.updateOptions({
