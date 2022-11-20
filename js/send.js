@@ -15,6 +15,8 @@ const successButton = messageSuccess.querySelector('.success__button');
 const errorButton = templateError.querySelector('.error__button');
 const textDescription = document.querySelector('.text__description');
 const uploadInput = document.querySelector('.img-upload__input');
+const radioNone = document.querySelector('.effects__radio:nth-child(1)');
+console.log(radioNone);
 
 successButton.addEventListener('click', () => {
   messageSuccess.classList.add('hidden');
@@ -74,6 +76,7 @@ const setRequest = (onSuccess) => {
           imageUploadPreview.style.removeProperty('filter');
           textDescription.value = '';
           uploadInput.value = '';
+          radioNone.checked = true;
           setTimeout(() => {
             messageSuccess.remove();
           }, 3000);
