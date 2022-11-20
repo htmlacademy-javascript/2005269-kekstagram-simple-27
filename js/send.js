@@ -14,8 +14,7 @@ const messageSuccess = temlpateSuccess.cloneNode(true);
 const successButton = messageSuccess.querySelector('.success__button');
 const errorButton = templateError.querySelector('.error__button');
 const textDescription = document.querySelector('.text__description');
-const letterO = document.querySelector('.img-upload__label');
-
+const uploadInput = document.querySelector('.img-upload__input');
 
 successButton.addEventListener('click', () => {
   messageSuccess.classList.add('hidden');
@@ -74,7 +73,10 @@ const setRequest = (onSuccess) => {
           imageUploadPreview.style.transform = 'scale(100%)';
           imageUploadPreview.style.removeProperty('filter');
           textDescription.value = '';
-          letterO.remove();
+          uploadInput.value = '';
+          setTimeout(() => {
+            messageSuccess.remove();
+          }, 3000);
         } else {
           body.appendChild(templateError);
           setTimeout(() => {
