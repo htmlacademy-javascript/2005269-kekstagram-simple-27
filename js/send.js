@@ -16,7 +16,6 @@ const errorButton = templateError.querySelector('.error__button');
 const textDescription = document.querySelector('.text__description');
 const uploadInput = document.querySelector('.img-upload__input');
 const radioNone = document.querySelector('.effects__radio:nth-child(1)');
-console.log(radioNone);
 
 successButton.addEventListener('click', () => {
   messageSuccess.classList.add('hidden');
